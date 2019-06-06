@@ -1,12 +1,21 @@
 require(devtools)
+library(magrittr)
 library(FinancialInstrument)
 library(PerformanceAnalytics)
+library(quantmod)
+library(TTR)
 # Github
 library(blotter)
 library(quantstrat)
+library(IKTrading)
 
+prepare_time_for_posix_format <- function(text) {
+  return(gsub(".000 GMT+0200", "", text, fixed = TRUE))
+}
 candles <-
   read.csv(file = "AUDUSD_5min.csv", sep = ",", header = TRUE)
-# Local.time column need to be reformatted, then follow:
-# https://stackoverflow.com/questions/40876400/r-quantstrat-csv-import-for-intra-day-data#answer-40901697
-# posix_times <- as.POSIXct(candles[, 1])
+posix_times <- as.POSIXct(candles[, 1], format = '%d.%m.%Y %H:%M:%OS')
+time_series <- xts(x = candles[, 2:6], order.by = posix_times)
+
+
+print('--------> Done!!')
