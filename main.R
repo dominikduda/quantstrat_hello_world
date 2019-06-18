@@ -1,6 +1,6 @@
-source('lib/load_packages.R')
-source('lib/input_utils.R')
-source('lib/chart_utils.R')
+source('R/load_packages.R')
+source('R/input_utils.R')
+source('R/chart_utils.R')
 
 timeSeries <- InputUtils()$normalizedTimeSeries('AUDUSD_5min.csv')
 ChartUtils()$plotCandles(timeSeries)
