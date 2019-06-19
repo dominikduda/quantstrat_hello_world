@@ -18,7 +18,6 @@ InputUtils$methods(
     timeSeries <-
       filter(timeSeries, !(Open == High &
                              High == Low & Low == Close))
-    timeSeries$ema_14 <- EMA(timeSeries$Close, 14)
     return(timeSeries)
   }
 )
