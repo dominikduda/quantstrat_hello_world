@@ -1,31 +1,31 @@
-print('<----- Add indicators')
+print("<----- Add indicators")
 add.indicator(
   strategyName,
-  name = 'EMA',
-  arguments = list(x =  quote(Cl(timeSeries)), n = 51),
-  label = '51.Baseline'
+  name = "EMA",
+  arguments = list(x = quote(Cl(timeSeries)), n = 51),
+  label = "51.Baseline"
 )
 add.indicator(
   strategyName,
-  name = 'EMA',
-  arguments = list(x =  quote(Cl(timeSeries)), n = 21),
-  label = '21.Slow'
+  name = "EMA",
+  arguments = list(x = quote(Cl(timeSeries)), n = 21),
+  label = "21.Slow"
 )
 add.indicator(
   strategyName,
-  name = 'EMA',
-  arguments = list(x =  quote(Cl(timeSeries)), n = 14),
-  label = '14.Mid'
+  name = "EMA",
+  arguments = list(x = quote(Cl(timeSeries)), n = 14),
+  label = "14.Mid"
 )
 add.indicator(
   strategyName,
-  name = 'EMA',
-  arguments = list(x =  quote(Cl(timeSeries)), n = 5),
-  label = '5.Flash'
+  name = "EMA",
+  arguments = list(x = quote(Cl(timeSeries)), n = 5),
+  label = "5.Flash"
 )
 add.indicator(
   strategyName,
-  name = 'ATR',
+  name = "ATR",
   arguments = list(
     HLC =
       transform(
@@ -36,7 +36,6 @@ add.indicator(
       ),
     n = 14
   ),
-  label = 'ATRish'
+  label = "ATRish"
 )
-timeSeries$absDiff.EMA2151 <-
-  EMA(timeSeries %>% Cl, 21) - EMA(timeSeries %>% Cl, 51) %>% abs
+timeSeries$absDiff.EMA2151 <- EMA(timeSeries %>% Cl(), 21) - EMA(timeSeries %>% Cl(), 51) %>% abs()

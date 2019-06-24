@@ -1,5 +1,5 @@
-if (!'pacman' %in% installed.packages()) {
-  install.packages('pacman')
+if (!"pacman" %in% installed.packages()) {
+  install.packages("pacman")
 }
 require(pacman)
 p_load(
@@ -13,8 +13,8 @@ p_load(
   ggplot2
 )
 p_load_gh(
-  'IlyaKipnis/IKTrading',
-  'braverock/blotter',
-  'braverock/quantstrat',
-  'dominikduda/candlePlotter'
+  "IlyaKipnis/IKTrading",
+  "braverock/blotter",
+  "braverock/quantstrat",
+  "dominikduda/candlePlotter"
 )

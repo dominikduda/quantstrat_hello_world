@@ -1,21 +1,21 @@
-print('<----- Boilerplate')
-initDate <- '1995-01-01'
-backtestFrom <- timeSeries[, c('Time')][1]
-backtestTo <- timeSeries[, c('Time')][timeSeries %>% nrow]
-Sys.setenv(TZ = 'UTC')
-currency('USD')
-currency('AUD', currency = 'USD')
+print("<----- Boilerplate")
+initDate <- "1995-01-01"
+backtestFrom <- timeSeries[, c("Time")][1]
+backtestTo <- timeSeries[, c("Time")][timeSeries %>% nrow()]
+Sys.setenv(TZ = "UTC")
+currency("USD")
+currency("AUD", currency = "USD")
 
-print('<----- Set acc size and trade size')
+print("<----- Set acc size and trade size")
 initEq <- 20000
 tradesize <- 20000
 
-print('<----- Name strategy, portfolio and account')
-strategyName <- 'hello_world_strat'
-portfolioName <- 'hello_world_portfolio'
-accountName <- 'hello_world_account'
+print("<----- Name strategy, portfolio and account")
+strategyName <- "hello_world_strat"
+portfolioName <- "hello_world_portfolio"
+accountName <- "hello_world_account"
 
-print('<----- Clean cached strategy, portfolio and account')
+print("<----- Clean cached strategy, portfolio and account")
 rm.strat(strategyName)
 suppressWarnings(
   rm(
@@ -26,18 +26,18 @@ suppressWarnings(
 )
 suppressWarnings(rm("order_book.hello_world_portfolio", pos = .strategy))
 
-print('<----- Initialize portfolio, account, orders and strategy')
+print("<----- Initialize portfolio, account, orders and strategy")
 initPortf(
   portfolioName,
-  symbols = 'timeSeries',
+  symbols = "timeSeries",
   initDate = initDate,
-  currency = 'USD'
+  currency = "USD"
 )
 initAcct(
   accountName,
   portfolios = portfolioName,
   initDate = initDate,
-  currency = 'USD',
+  currency = "USD",
   initEq = initEq
 )
 initOrders(portfolioName, initDate = initDate)
