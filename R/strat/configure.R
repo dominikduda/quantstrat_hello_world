@@ -4,7 +4,7 @@ backtestFrom <- timeSeries[, c("Time")][1]
 backtestTo <- timeSeries[, c("Time")][timeSeries %>% nrow()]
 Sys.setenv(TZ = "UTC")
 currency("USD")
-currency("AUD", currency = "USD")
+currency("timeSeries", currency = "USD")
 
 print("<----- Set acc size and trade size")
 initEq <- 20000
