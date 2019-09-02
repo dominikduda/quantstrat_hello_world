@@ -9,11 +9,22 @@ InputUtils$methods(
   },
 
   p.normalize = function(timeSeries) {
-    timeSeries <- timeSeries[1:3000, ]
+    timeSeries <- timeSeries[1:2000, ]
     colnames(timeSeries) <- c("Time", "Open", "High", "Low", "Close", "Volume")
-    timeSeries <- transform(timeSeries, Time = as.POSIXct(Time, format = "%d.%m.%Y %H:%M:%OS"))
+    print(colnames(timeSeries))
+
+    timeSeries <- transform(
+      timeSeries[, -1],
+      Time = as.POSIXct(timeSeries$Time, format = "%d.%m.%Y %H:%M:%OS")
+    )
+
     # Filtering exchange close periods (dukascopy specific apparently)
     timeSeries <- filter(timeSeries, !(Open == High & High == Low & Low == Close))
+    timeSeries <- xts(
+      timeSeries,
+      order.by = timeSeries$Time, format = "%d.%m.%Y %H:%M:%OS"
+    )
     return(timeSeries)
   }
 )
+
