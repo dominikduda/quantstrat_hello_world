@@ -7,8 +7,8 @@ currency("USD")
 currency("timeSeries", currency = "USD")
 
 print("<----- Set acc size and trade size")
-initEq <- 20000
-tradesize <- 20000
+initEq <- 160000
+tradesize <- 160000
 
 print("<----- Name strategy, portfolio and account")
 strategyName <- "hello_world_strat"

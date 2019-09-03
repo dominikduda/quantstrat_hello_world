@@ -1,4 +1,6 @@
 print("<----- Add trade filters")
+
+# Long entry:
 add.signal(
   strategyName,
   name = "sigComparison",
@@ -6,6 +8,30 @@ add.signal(
   relationship = "gt",
   label = "flashAboveBaseline"
 )
+add.signal(
+  strategyName,
+  name = "sigComparison",
+  arguments = list(columns = c("EMA.5.Flash", "EMA.14.Mid")),
+  relationship = "gt",
+  label = "flashAboveMid"
+)
+add.signal(
+  strategyName,
+  name = "sigComparison",
+  arguments = list(columns = c("EMA.14.Mid", "EMA.51.Baseline")),
+  relationship = "gt",
+  label = "midAboveBaseline"
+)
+add.signal(strategyName,
+  name = "sigFormula",
+  arguments = list(
+    formula = "flashAboveBaseline & flashAboveMid & midAboveBaseline",
+    cross = TRUE
+  ),
+  label = "entryLong"
+)
+
+
 add.signal(
   strategyName,
   name = "sigComparison",
@@ -42,10 +68,6 @@ add.signal(
 #   label = "longEntry"
 # )
 
-add.signal(strategyName, name = "sigFormula",
-           arguments = list(formula = "flashAboveBaseline",
-                            cross = TRUE),
-           label = "entryLong")
 
 print("<----- Add trade rules")
 add.rule(

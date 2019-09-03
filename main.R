@@ -23,5 +23,8 @@ updateEndEq(accountName)
 # Stats:
 
 tstats <- tradeStats(Portfolios = portfolioName)
+tstats %>%
+  str() %>%
+  print()
 
 print("<----- Done!!")
