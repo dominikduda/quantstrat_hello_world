@@ -1,21 +1,14 @@
 message("<----- START Visualize")
 
-svgDev <- svg(paste(strategyName, "trades.svg", sep = "_"), width = 20, height = 8, pointsize = 20)
+# Save result chart to temp svg file
+tempFile <- tempfile()
+svgDev <- svg(tempFile, width = 34, height = 14, pointsize = 20)
 chart.Posn(Portfolio = portfolioName, Symbol = "timeSeries")
-
-message(sprintf("[visualize.R:7] DEBUGGING STRING ==> %s\n", 0))
-
-# prevDevice <- dev.cur()
-# dev.copy(dev.next)
-# dev.set(dev.next())
-
-# dev.copy2pdf(out.type = "pdf", which = prevDevice)
-# dev.print(device = dev.cur, width = 6, height = 6, horizontal = TRUE, onefile = TRUE) # prints it
-
-dev.off()
 dev.off()
 
-# graphics.off()
-
+# Convert svg to bitmap and save it as png
+bmp <- rsvg(tempFile, width = 6880, height = 2880)
+png::writePNG(bmp, paste(strategyName, "trades.png", sep = "_"), dpi = 500)
+graphics.off()
 
 message("<----- END")
