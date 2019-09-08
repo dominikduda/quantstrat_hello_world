@@ -1,4 +1,4 @@
-print("<----- Add trade filters")
+print("<----- START Add trade filters")
 
 # Long entry:
 add.signal(
@@ -98,3 +98,5 @@ add.rule(
   ),
   type = "enter"
 )
+
+print("<----- END")
