@@ -2,6 +2,9 @@ message("<----- START Add indicators")
 
 candleDirection <- function(timeSeries) {
   builder <- function(open, close) {
+    if (open %>% is.na()) {
+      return(0)
+    }
     if (as.double(open) < as.double(close)) {
       return(1)
     } else {
@@ -10,11 +13,11 @@ candleDirection <- function(timeSeries) {
   }
 
   timeSeries <- as.data.frame(timeSeries)
-  timeSeries$color <- mapply(builder, timeSeries$Open, timeSeries$Close)
+  timeSeries$color <- mapply(builder, timeSeries$Open %>% lag(), timeSeries$Close %>% lag())
 
   colorsVector <- timeSeries$color
   dim(colorsVector) <- c(nrow(timeSeries), 1)
-  colnames(colorsVector) <- "candle"
+  colnames(colorsVector) <- "lastCandle"
   return(colorsVector)
 }
 
@@ -25,7 +28,7 @@ add.indicator(
   arguments = list(
     timeSeries = quote(timeSeries)
   ),
-  label = "direction"
+  label = "color"
 )
 add.indicator(
   strategyName,
