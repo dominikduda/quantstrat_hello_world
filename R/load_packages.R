@@ -8,9 +8,10 @@ p_load(
   TTR,
   devtools,
   dplyr,
+  ggplot2,
   magrittr,
   quantmod,
-  ggplot2
+  rsvg
 )
 p_load_gh(
   "IlyaKipnis/IKTrading",

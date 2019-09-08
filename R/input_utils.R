@@ -9,7 +9,7 @@ InputUtils$methods(
   },
 
   p.normalize = function(timeSeries) {
-    timeSeries <- timeSeries[1:800, ]
+    timeSeries <- timeSeries[1:1000, ]
     colnames(timeSeries) <- c("Time", "Open", "High", "Low", "Close", "Volume")
     print(colnames(timeSeries))
 
@@ -27,4 +27,3 @@ InputUtils$methods(
     return(timeSeries)
   }
 )
-
