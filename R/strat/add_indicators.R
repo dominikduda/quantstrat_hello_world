@@ -1,4 +1,4 @@
-print("<----- START Add indicators")
+message("<----- START Add indicators")
 
 candleDirection <- function(timeSeries) {
   builder <- function(open, close) {
@@ -46,4 +46,4 @@ add.indicator(
   label = "5.Flash"
 )
 
-print("<----- END")
+message("<----- END")

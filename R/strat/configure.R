@@ -1,4 +1,4 @@
-print("<----- START Boilerplate")
+message("<----- START Boilerplate")
 
 initDate <- "1995-01-01"
 backtestFrom <- timeSeries[, c("Time")][1]
@@ -44,4 +44,4 @@ initAcct(
 initOrders(portfolioName, initDate = initDate)
 strategy(strategyName, store = TRUE)
 
-print("<----- END")
+message("<----- END")

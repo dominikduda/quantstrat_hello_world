@@ -1,8 +1,9 @@
-print("<----- START Visualize")
+message("<----- START Visualize")
 
 svgDev <- svg(paste(strategyName, "trades.svg", sep = "_"), width = 20, height = 8, pointsize = 20)
 chart.Posn(Portfolio = portfolioName, Symbol = "timeSeries")
 
+message(sprintf("[visualize.R:7] DEBUGGING STRING ==> %s\n", 0))
 
 # prevDevice <- dev.cur()
 # dev.copy(dev.next)
@@ -17,4 +18,4 @@ dev.off()
 # graphics.off()
 
 
-print("<----- END")
+message("<----- END")

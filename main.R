@@ -11,8 +11,10 @@ timeSeries <- applyIndicators(strategy = strategyName, mktdata = timeSeries)
 
 source("R/strat/specify.R")
 
+message("<----- Perform simulation START")
 test <- applySignals(strategy = strategyName, mktdata = timeSeries)
 out <- applyStrategy(strategy = strategyName, portfolios = portfolioName)
+message("<----- Perform simulation END")
 
 # Flush new data
 updatePortf(portfolioName)
@@ -27,4 +29,4 @@ tstats %>%
 
 source("R/visualize.R")
 
-print("<----- Done!!")
+message("<----- Done!!")

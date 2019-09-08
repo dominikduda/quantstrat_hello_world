@@ -1,4 +1,4 @@
-print("<----- START Add trade filters")
+message("<----- START Add trade signals")
 
 # Long entry:
 add.signal(
@@ -67,9 +67,10 @@ add.signal(
 #   relationship = "gt",
 #   label = "longEntry"
 # )
+message("<----- END")
 
 
-print("<----- Add trade rules")
+message("<----- Add trade rules")
 add.rule(
   strategyName,
   name = "ruleSignal",
@@ -99,4 +100,4 @@ add.rule(
   type = "enter"
 )
 
-print("<----- END")
+message("<----- END")
