@@ -7,9 +7,11 @@ Sys.setenv(TZ = "UTC")
 currency("USD")
 currency("timeSeries", currency = "USD")
 
-print("<---------- Set acc size and trade size")
+print("<---------- Set variabled")
 initEq <- 160000
 tradesize <- 160000
+stopLoss <- 0.005
+txFee <- -10
 
 print("<---------- Name strategy, portfolio and account")
 strategyName <- "hello_world_strat"
