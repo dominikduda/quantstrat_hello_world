@@ -4,7 +4,7 @@ source("R/chart_utils.R")
 timeSeries <- InputUtils()$normalizedTimeSeries("AUDUSD_5min.csv")
 
 
-source("R/strat/configure.R")
+source("R/strat/initialize.R")
 source("R/strat/add_indicators.R")
 
 timeSeries <- applyIndicators(strategy = strategyName, mktdata = timeSeries)
