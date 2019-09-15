@@ -9,10 +9,11 @@ chart.Posn(
 )
 dev.off()
 
-secondsFromEpoch <- Sys.time() %>% as.numeric()
+secondsFromEpoch <- Sys.time() %>%
+  as.numeric() %>%
+  round()
 filePath <- paste(strategyName, "trades", secondsFromEpoch, sep = "_") %>%
-  paste(., ".png", sep = "") %>%
-  paste("./plots/", ., sep = "")
+  paste("./plots/", ., ".png", sep = "")
 
 bmp <- rsvg(tempFile, width = 6880, height = 2880)
 png::writePNG(bmp, filePath, dpi = 500)
