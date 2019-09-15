@@ -81,19 +81,19 @@ add.indicator(
 add.indicator(
   strategyName,
   name = "EMA",
-  arguments = list(x = quote(Cl(timeSeries)), n = 51),
+  arguments = list(x = quote(Cl(timeSeries)), n = baselineEMALength),
   label = "51.Baseline"
 )
 add.indicator(
   strategyName,
   name = "EMA",
-  arguments = list(x = quote(Cl(timeSeries)), n = 14),
+  arguments = list(x = quote(Cl(timeSeries)), n = midEMALength),
   label = "14.Mid"
 )
 add.indicator(
   strategyName,
   name = "EMA",
-  arguments = list(x = quote(Cl(timeSeries)), n = 5),
+  arguments = list(x = quote(Cl(timeSeries)), n = flashEMALength),
   label = "5.Flash"
 )
 

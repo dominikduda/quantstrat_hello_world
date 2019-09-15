@@ -7,13 +7,14 @@ Sys.setenv(TZ = "UTC")
 currency("USD")
 currency("timeSeries", currency = "USD")
 
-print("<---------- Set variabled")
+print("<---------- Set variables")
 initEq <- 160000
 tradesize <- 160000
 stopLoss <- 0.005
 txFee <- -10
-
-print("<---------- Name strategy, portfolio and account")
+baselineEMALength <- 50
+midEMALength <- 14
+flashEMALength <- 5
 strategyName <- "hello_world_strat"
 portfolioName <- "hello_world_portfolio"
 accountName <- "hello_world_account"

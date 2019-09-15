@@ -5,7 +5,12 @@ tempFile <- tempfile()
 svgDev <- svg(tempFile, width = 34, height = 14, pointsize = 20)
 chart.Posn(
   Portfolio = portfolioName, Symbol = "timeSeries",
-  TA = "add_EMA(n = 51, col = 'Blue', with.col = Cl)"
+  TA = paste(
+    paste("add_EMA(n = ", baselineEMALength, ", col = 'Blue', with.col = Cl)", sep = ""),
+    "add_EMA(n = 14, col = 'Yellow', with.col = Cl)",
+    "add_EMA(n = 5, col = 'Red',  with.col = Cl)",
+    sep = "; "
+  )
 )
 dev.off()
 
